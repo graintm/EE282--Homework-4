@@ -85,3 +85,37 @@ bioawk -c fastx ' { print length($seq) } ' dmel-all-chromosome-r6.24.fasta \
 > FB_scaff.tmp
 
 plotCDF2 {FB_scaff,FB_contig,nanopore_contig}.tmp nanoporecomparison.png
+
+#BUSCO analysis
+module load augustus/3.2.1
+module load blast/2.2.31 hmmer/3.1b2 boost/1.54.0
+source /pub/jje/ee282/bin/.buscorc
+cd /pub/jje/ee282/galentm/nanopore_assembly/nanopore_assembly/data/processed/
+
+INPUTTYPE="geno"
+MYLIBDIR="/pub/jje/ee282/bin/busco/lineages/"
+MYLIB="diptera_odb9"
+OPTIONS="-l ${MYLIBDIR}${MYLIB}"
+##OPTIONS="${OPTIONS} -sp 4577"
+QRY="unitigs.fa"
+MYEXT=".fa" ###Please change this based on your qry file. I.e. .fasta or .fa or .gfa
+
+#my busco run
+BUSCO.py -c ${NSLOTS} -i ${QRY} -m ${INPUTTYPE} -o $(basename ${QRY} ${MYEXT})_${MYLIB}${SPTAG} ${OPTIONS}
+
+module load augustus/3.2.1
+module load blast/2.2.31 hmmer/3.1b2 boost/1.54.0
+source /pub/jje/ee282/bin/.buscorc
+cd /pub/jje/ee282/galentm/nanopore_assembly/nanopore_assembly/data/processed/
+
+INPUTTYPE="geno"
+MYLIBDIR="/pub/jje/ee282/bin/busco/lineages/"
+MYLIB="diptera_odb9"
+OPTIONS="-l ${MYLIBDIR}${MYLIB}"
+##OPTIONS="${OPTIONS} -sp 4577"
+QRY="splitassembly.fa"
+MYEXT=".fa" ###Please change this based on your qry file. I.e. .fasta or .fa or .gfa
+
+#my busco run
+BUSCO.py -c ${NSLOTS} -i ${QRY} -m ${INPUTTYPE} -o $(basename ${QRY} ${MYEXT})_${MYLIB}${SPTAG} ${OPTIONS}
+
