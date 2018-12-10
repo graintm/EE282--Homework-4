@@ -29,18 +29,8 @@ Nine of the .png files relate to this section. They are:
 
 __On a personal note__, I want to apologize for the quality of the histograms. For some reason, I couldn't get the R scripts that I was running from the command line to work with changes from defaults in the hist() function (axis labels, axis limits, and breaks), even though they were working in R studio on my personal computer.
 
-### Part two (genome assembly)
-The file "**parttwo.sh**" contains the script for the second part of the assignment.
-
-For the assembly assessment section:
-1. N50 of our nanopore assembly was 4494246, while the reference is 21485538
-2. The dotplot comparing our assembly to the contig assembly from FlyBase is in the file named "dotplot.png"
-3. The contiguity plot comparing the FlyBase assemblies with our assembly is in the file named "nanoporecomparison.png"
-4. The BUSCO score for our assembly was 13/2799 (0.5%), whereas that of the reference was 2763/2799 (98.7%)
-
-All of these files can be found in two different directories within your public directory: /pub/jje/ee282/galentm/HW4/ and /pub/jje/ee282/galentm/nanopore_assembly/
-
 I haven't included the R scripts referenced by "partone.sh" because the repository already contains a lot of files, and I don't want to make it any harder to look through. They are located in /pub/jje/ee282/galentm/HW4/code/scripts/ 
+
 Here is an example of one of them (they're all basically the same):
 ```
 #!/usr/bin/env Rscript
@@ -56,3 +46,16 @@ png("GCall.png")
 plot(GCall.png)
 dev.off()
 ```
+
+### Part two (genome assembly)
+The file "**parttwo.sh**" contains the script for the second part of the assignment.
+
+For the assembly assessment section:
+1. N50 of our nanopore assembly was 4494246, while the reference is 21485538
+2. The dotplot comparing our assembly to the contig assembly from FlyBase is in the file named "dotplot.png"
+3. The contiguity plot comparing the FlyBase assemblies with our assembly is in the file named "nanoporecomparison.png"
+4. The BUSCO score for our assembly was 13/2799 (0.5%), whereas that of the reference was 2763/2799 (98.7%)
+
+All of these files can be found in two different directories within your public directory: /pub/jje/ee282/galentm/HW4/ and /pub/jje/ee282/galentm/nanopore_assembly/
+
+
