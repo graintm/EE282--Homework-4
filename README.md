@@ -39,3 +39,20 @@ For the assembly assessment section:
 4. The BUSCO score for our assembly was 13/2799 (0.5%), whereas that of the reference was 2763/2799 (98.7%)
 
 All of these files can be found in two different directories within your public directory: /pub/jje/ee282/galentm/HW4/ and /pub/jje/ee282/galentm/nanopore_assembly/
+
+I haven't included the R scripts referenced by "partone.sh" because the repository already contains a lot of files, and I don't want to make it any harder to look through. They are located in /pub/jje/ee282/galentm/HW4/code/scripts/ 
+Here is an example of one of them (they're all basically the same):
+```
+#!/usr/bin/env Rscript
+args <- commandArgs(trailingOnly = TRUE)
+#sink(file = "/pub/jje/ee282/galentm/HW4/data/processed/GCall.png")
+setwd("/pub/jje/ee282/galentm/HW4/data/processed/")
+
+GCalldf <- read.table("allGC.txt", header = FALSE)
+GCallvector <- GCalldf[[1]]
+
+GCall.png <- hist(GCallvector, xlim = c(0,0.8), xlab = "GC content")
+png("GCall.png")
+plot(GCall.png)
+dev.off()
+```
