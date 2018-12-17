@@ -47,6 +47,10 @@ plot(GCall.png)
 dev.off()
 ```
 
+### Comments on "Summarize partitions of a genome assembly"
+
+Good job. It would have made your life easier to use the ```faSize``` utility in the ```jje/kent``` module to summarize the files. Your clever use of Unix got you the answers, but introduced a systematic error. Since you wrote all sequences on different lines, you counted each newline once. Consequenbtly, the correct answer is the total number of nucleotides you reported minus the number of sequences you reported. Otherwise, you were spot on.
+
 ### Part two (genome assembly)
 The file "**parttwo.sh**" contains the script for the second part of the assignment.
 
