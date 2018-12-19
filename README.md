@@ -58,4 +58,4 @@ For the assembly assessment section:
 
 All of these files can be found in two different directories within your public directory: /pub/jje/ee282/galentm/HW4/ and /pub/jje/ee282/galentm/nanopore_assembly/
 
-
+### This is good, but honestly by this point you should be able to incorporate png's into your readme file. Great job otherwise.
